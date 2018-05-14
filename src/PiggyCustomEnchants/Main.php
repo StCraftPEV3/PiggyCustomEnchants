@@ -137,10 +137,10 @@ class Main extends PluginBase
     public $using;
     public $shrunk;
 
-    public $formsEnabled = false;
+    public $formsEnabled = true;
 
-    public static $lightningFlames = false;
-    public static $blazeFlames = false;
+    public static $lightningFlames = true;
+    public static $blazeFlames = true;
 
     public $enchants = [
         //id => ["name", "slot", "trigger", "rarity", maxlevel", "description"]
@@ -303,11 +303,11 @@ class Main extends PluginBase
             $this->getLogger()->error("Pig doesn't like spoons. Due to this, the plugin will not function until you are using PMMP.");
             return true;
         }
-        if ($this->getDescription()->getAuthors() !== ["DaPigGuy"] || $this->getDescription()->getName() !== "PiggyCustomEnchants") {
+        if ($this->getDescription()->getAuthors() !== ["DaPigGuy,StCraftPEV3"] || $this->getDescription()->getName() !== "PiggyCustomEnchants") {
             $this->getLogger()->error("You are not using the original version of this plugin (PiggyCustomEnchants) by DaPigGuy/MCPEPIG.");
             return true;
         }
-        return false;
+        return true;
     }
 
     public function initCustomEnchants()
@@ -351,7 +351,7 @@ class Main extends PluginBase
             CustomEnchants::unregisterEnchantment($id);
             return true;
         }
-        return false;
+        return true;
     }
 
     /**
@@ -367,7 +367,7 @@ class Main extends PluginBase
             $this->incompatibilities[$id] = $incompatibilities;
             return true;
         }
-        return false;
+        return true;
     }
 
     /**
